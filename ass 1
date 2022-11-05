@@ -1,0 +1,15 @@
+clc;
+clear all;
+close all;
+Xn = input ('Enter the signal X(n) ');
+Hn = input ('Enter the signal H(n) ');
+L = length (Xn);
+M = length (Hn);
+N = L+M-1;
+xn=[Xn , zeros(1,N-L)];
+hn=[Hn , zeros(1,N-M)];
+X1k = fft (xn)
+H1k = fft (hn)
+Yk = X1k.*H1k
+yn= ifft (Yk)
+Y1n = conv (Xn, Hn)
